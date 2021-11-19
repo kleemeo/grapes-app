@@ -20,9 +20,11 @@ function Home() {
 
   return (
     <>
-      {showLanding && <Landing handleEmployerClick={handleEmployerClick} handleSeekerClick={handleSeekerClick} />}
-      {isEmployer && <EmployerLogin />}
-      {isSeeker && <SeekerLogin />}
+      <div className="card-md">
+        {showLanding && <Landing handleEmployerClick={handleEmployerClick} handleSeekerClick={handleSeekerClick} />}
+        {isEmployer && <EmployerLogin />}
+        {isSeeker && <SeekerLogin />}
+      </div>
     </>
   )
 }

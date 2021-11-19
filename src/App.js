@@ -1,6 +1,5 @@
-import './App.scss';
-import styles from './styles.module.scss';
-import { Routes, Route, Link } from 'react-router-dom';
+import './App.module.scss';
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SeekerLogin from './components/SeekerLogin';
 import EmployerLogin from './components/EmployerLogin';

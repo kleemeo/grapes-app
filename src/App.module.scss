@@ -1,6 +1,97 @@
+// Typography
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-body {
-  background: linear-gradient(121.2deg, rgba(134, 72, 121, 0.7) 20.65%, rgba(94, 83, 111, 0.7) 89.48%);
+h1 {
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin: 0 auto;
+  background-image: -webkit-linear-gradient(45deg, #ee94df, #68C6FB);
+  background-size: 120%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent; 
 }
 
+// General
+body {
+  background: linear-gradient(100deg, #D7AEBD, #93BCD2 115%);
+  color: #FFFFFF;
+}
+
+.grape-logo {
+  width: 30px;
+  fill: white;
+}
+
+// Login Portal Layout
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-md {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 350px;
+  height: 500px;
+
+  background-color: #1F1D36; 
+  box-shadow: 0 3px 6px rgba(0,0,0,0.36), 0 3px 6px rgba(0,0,0,0.53);
+  border-radius: 20px;
+}
+
+a {
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  font-family: 'Quicksand';
+  font-weight: 500;
+  font-size: 1rem;
+  width: 65%;
+  padding: .75rem 2rem;
+  border: none;
+  background: linear-gradient(90deg, #6D3862 0%, #9ab4c2);
+  background-size: 200%;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.btn:hover{
+  animation: btn-animation 0.25s ease-in-out forwards;
+}
+
+@keyframes btn-animation {
+  0% {
+    color: #ffffff;
+    background-position: top left;
+  }
+  100% {
+    color: #46103f;
+    background-position: top right;
+  }
+}
+
+input[type=text] {
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  width: calc(65% - 1.25rem);
+  border-radius: 10px;
+  background-color: #3F3351;
+  padding: 0.75rem;
+  color: #ffffff;
+}
+
+input[type=text]:focus,
+input[type=text]:focus {
+  outline-style: none;
+  border: 1px solid rgb(224, 156, 220);
+  margin: -1px;
+}

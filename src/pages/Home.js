@@ -1,6 +1,7 @@
 import { useState } from "react";
 import EmployerLogin from "../components/EmployerLogin";
 import SeekerLogin from "../components/SeekerLogin";
+import classes from '../App.module.scss';
 
 function Home() {
 
@@ -19,23 +20,23 @@ function Home() {
   }
 
   return (
-    <>
-      <div className="card-md">
+    <section className={classes.wrapper}>
+      <article className={classes['card-md']}>
         {showLanding && <Landing handleEmployerClick={handleEmployerClick} handleSeekerClick={handleSeekerClick} />}
         {isEmployer && <EmployerLogin />}
         {isSeeker && <SeekerLogin />}
-      </div>
-    </>
+      </article>
+    </section>
   )
 }
 
 function Landing(props) {
   return (
     <>
-      <h1>Grapes</h1>
-      <p>Please select your role</p>
-      <button onClick={props.handleEmployerClick}>Employer</button>
-      <button onClick={props.handleSeekerClick}>Seeker</button>
+      <h1 className={''}>Grapes</h1>
+      <p>Select your role</p>
+      <button className={classes.btn} onClick={props.handleEmployerClick}>Employer</button>
+      <button className={classes.btn} onClick={props.handleSeekerClick}>Seeker</button>
     </>
   )
 }

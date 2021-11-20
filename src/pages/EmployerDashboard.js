@@ -1,5 +1,6 @@
 import Nav from '../components/Nav'
 import { Link } from 'react-router-dom';
+import DashTable from '../components/DashTable';
 
 function EmployerDashboard() {
   return (
@@ -13,6 +14,7 @@ function EmployerDashboard() {
       <section className="postings">
         <div className="nav">
           <h4>Your Postings</h4>
+          <DashTable />
           <Link to="/form"><button>Post a Job</button></Link>
         </div>
       </section>

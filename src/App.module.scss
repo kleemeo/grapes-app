@@ -49,6 +49,7 @@ body {
 }
 
 .cardFull {
+  max-width: 900px;
   @include card;
   align-items: flex-start;
   margin: 0 auto;
@@ -74,12 +75,54 @@ body {
 
 a {
   width: 100%;
+  font-weight: 500;
   text-align: center;
+  text-decoration: none;
+  color: #e4b0e0;
+
+  &:hover {
+    color: #f8e9f7;
+  }
 }
 
 form {
-  width: 100%;
   text-align: center;
+
+  &.addJob {
+    padding: 50px 0 75px 0;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    label {
+      margin-bottom: 0.4rem;
+      padding-left: 0.5rem;
+    }
+    input {
+      text-align: left;
+      width: calc(100% - 1.5rem);
+    }
+    textarea {
+      font-size: 1rem;
+      font-weight: 400;
+      padding: 0.75rem;
+      color: #ffffff;
+      width: calc(100% - 1.5rem);
+      border: none;
+      outline: none;
+      resize: none;
+      background-color: #3f3351;
+      border-radius: 10px;
+    }
+    textarea:focus {
+      box-shadow: 0px 0px 0px 1px #e09cdc inset;
+    }
+    button {
+      margin-top: 50px;
+      align-self: center;
+    }
+  }
 }
 
 form > * {
@@ -113,14 +156,17 @@ form > * {
   width: 65%;
 }
 
-.navBtn {
-  margin: 0;
-  @include button;
-  padding: 5px 25px;
+.filterList {
+  margin-top: 10px;
+  margin-left: 2.5%;
 }
 
-.navList {
-  max-width: 1200px;
+.filterBtn {
+  @include button;
+  background: none;
+  background-color: #864879;
+  margin-right: 5px;
+  padding: 0.25rem 0.5rem;
 }
 
 @keyframes btn-animation {
@@ -135,6 +181,7 @@ form > * {
 }
 
 input[type='text'] {
+  font-family: 'Quicksand', sans-serif;
   font-size: 1rem;
   text-align: center;
   border: none;
@@ -148,7 +195,7 @@ input[type='text'] {
 input[type='text']:focus,
 input[type='text']:focus {
   outline-style: none;
-  border: 1px solid rgb(224, 156, 220);
+  border: 1px solid #e09cdc;
   margin-top: -1px;
   margin-bottom: 15px;
 }
@@ -160,8 +207,12 @@ input[type='text']:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  h1 {
+    margin: 0;
+  }
+
   ul {
-    width: 80%;
+    width: 78%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -169,6 +220,25 @@ input[type='text']:focus {
     align-items: center;
   }
   a {
+    text-align: right;
+  }
+}
+
+// Nav
+
+.navBtn {
+  margin: 0;
+  @include button;
+  padding: 5px 25px;
+}
+
+.navList {
+  max-width: 1200px;
+  & > ul.navBtnList {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    list-style: none;
     text-align: right;
   }
 }
@@ -195,5 +265,36 @@ input[type='text']:focus {
   width: 100%;
   & > a {
     text-align: right;
+  }
+}
+
+// Main Board
+
+.jobBoard {
+  padding: 30px 0;
+}
+
+.jobCard {
+  padding: 0.75rem 1rem;
+
+  .cityText {
+    font-size: 0.75rem;
+  }
+
+  h4,
+  h5 {
+    margin: 0.5rem 0;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  &:hover {
+    background-color: #3f3351;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.36);
+    transform: scale(1.01);
+    transition: all 0.2s ease-in;
   }
 }

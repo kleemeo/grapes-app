@@ -7,7 +7,20 @@ import EmployerDashboard from './pages/EmployerDashboard';
 import MainBoard from './pages/MainBoard';
 import Form from './pages/Form';
 
+const uploadData = () => {
+  let dataObject = {};
+
+  fetch('./data/data.json')
+    .then(res => res.json())
+    .them(data => {
+      dataObject = { ...data }
+    })
+}
+
 function App() {
+
+
+
   return (
     <Routes>
       <Route path="/" element={<Home />}>
@@ -20,4 +33,5 @@ function App() {
     </Routes>
   );
 }
+
 export default App;

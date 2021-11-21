@@ -7,9 +7,9 @@ function EmployerDashboard() {
   return (
     <>
       <Nav currentView="employer" />
-      <main className={`${classes['cardFull']} ${classes.topShadow}`}>
+      <main className={`${classes.cardFull} ${classes.topShadow}`}>
         <section className={classes.companyInfo}>
-          <h4>Your Company Name</h4>
+          <h3>Your Company Name</h3>
           <div className={classes.flexHorizontal}>
             <h4>Your Postings</h4>
             <Link to="/form"><button className={classes.navBtn}>Post a New Role</button></Link>

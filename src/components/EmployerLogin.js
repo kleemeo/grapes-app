@@ -6,9 +6,11 @@ function EmployerLogin() {
     <>
       <h1>Hi, Employer</h1>
       <p>enter your code</p>
-      <label htmlFor="employerCode"></label>
-      <input type="text" id="employerCode" maxlength="10" />
-      <Link to="/dashboard"><button className={`${classes.btn}`}>Enter</button></Link>
+      <form>
+        <label htmlFor="employerCode"></label>
+        <input type="text" id="employerCode" maxlength="10" />
+        <Link to="/dashboard"><button className={`${classes.btn}`}>Enter</button></Link>
+      </form>
     </>
   )
 }

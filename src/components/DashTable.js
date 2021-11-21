@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
 import { useTable } from 'react-table'
 import MOCK_DATA from '../data/MOCK_DATA.json'
+import './DashTable.scss'
+
 
 function Table({ columns, data }) {
   // Use the state and functions returned from useTable to build your UI
@@ -17,8 +19,8 @@ function Table({ columns, data }) {
 
   // Render the UI for your table
   return (
-    <table {...getTableProps()}>
-      <thead>
+    <table {...getTableProps()} >
+      <thead className="test">
         {headerGroups.map(headerGroup => (
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (

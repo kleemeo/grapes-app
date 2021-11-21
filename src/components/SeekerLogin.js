@@ -6,9 +6,11 @@ function SeekerLogin() {
     <>
       <h1>Hello, Seeker</h1>
       <p>enter your code</p>
-      <label htmlFor="seekerCode"></label>
-      <input type="text" id="seekerCode" maxlength="10" />
-      <Link to="/board"><button className={`${classes.btn}`}>Enter</button></Link>
+      <form action="">
+        <label htmlFor="seekerCode"></label>
+        <input type="text" id="seekerCode" maxlength="10" />
+        <Link to="/board"><button className={`${classes.btn}`}>Enter</button></Link>
+      </form>
     </>
   )
 }

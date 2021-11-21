@@ -20,8 +20,8 @@ function Home() {
   }
 
   return (
-    <section className={classes.wrapper}>
-      <article className={classes['card-md']}>
+    <section className={classes.wrapperLogin}>
+      <article className={classes['cardMed']}>
         {showLanding && <Landing handleEmployerClick={handleEmployerClick} handleSeekerClick={handleSeekerClick} />}
         {isEmployer && <EmployerLogin />}
         {isSeeker && <SeekerLogin />}

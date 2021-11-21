@@ -1,23 +1,26 @@
 import Nav from '../components/Nav'
 import { Link } from 'react-router-dom';
 import DashTable from '../components/DashTable';
+import classes from '../App.module.scss';
 
 function EmployerDashboard() {
   return (
     <>
       <Nav currentView="employer" />
-      <section className="compantInfo">
-        <h4>Company Name</h4>
-        <p>Location</p>
-        <p>Employees</p>
-      </section>
-      <section className="postings">
-        <div className="nav">
-          <h4>Your Postings</h4>
-          <DashTable />
-          <Link to="/form"><button>Post a Job</button></Link>
-        </div>
-      </section>
+      <main className={`${classes['cardFull']} ${classes.topShadow}`}>
+        <section className={classes.companyInfo}>
+          <h4>Your Company Name</h4>
+          <div className={classes.flexHorizontal}>
+            <h4>Your Postings</h4>
+            <Link to="/form"><button className={classes.navBtn}>Post a New Role</button></Link>
+          </div>
+        </section>
+        <section className={classes.postings}>
+          <div className={classes.wrapper}>
+          </div>
+          <DashTable className={classes.table} />
+        </section>
+      </main>
     </>
   )
 }

@@ -8,7 +8,7 @@ function SeekerLogin() {
       <p>enter your code</p>
       <form action="">
         <label htmlFor="seekerCode"></label>
-        <input type="text" id="seekerCode" maxlength="10" />
+        <input type="text" id="seekerCode" maxLength="10" />
         <Link to="/board"><button className={`${classes.btn}`}>Enter</button></Link>
       </form>
     </>

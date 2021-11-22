@@ -36,7 +36,7 @@ function EmployerDashboard() {
     dbRef.on('value', snapshot => {
       const data = snapshot.val().reverse();
       dbData = data;
-      dbData.forEach((job, index) => {
+      dbData.forEach(job => {
         job.description = job.description.slice(0, 500)
       })
       console.log(dbData)

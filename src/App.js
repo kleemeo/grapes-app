@@ -7,20 +7,22 @@ import EmployerDashboard from './pages/EmployerDashboard';
 import MainBoard from './pages/MainBoard';
 import Form from './pages/Form';
 
-// import { useEffect, useState } from 'react';
-// import firebase from './firebase';
+import { useEffect, useState } from 'react';
+import firebase from './firebase';
 
-// const updateDatabase = () => {
-//   const dbRef = firebase.database().ref('job-data');
+const updateDatabase = () => {
+  const dbRef = firebase.database().ref('job-data');
 
-//   fetch('./data.json')
-//     .then(res => res.json())
-//     .then(data => {
-//       dbRef.update(data)
-//     })
-// }
+  fetch('./data.json')
+    .then(res => res.json())
+    .then(data => {
+      dbRef.update(data)
+    })
+}
 
 function App() {
+
+  // updateDatabase();
 
   return (
     <Routes>

@@ -8,7 +8,7 @@ function EmployerLogin() {
       <p>enter your code</p>
       <form>
         <label htmlFor="employerCode"></label>
-        <input type="text" id="employerCode" maxlength="10" />
+        <input type="text" id="employerCode" maxLength="10" />
         <Link to="/dashboard"><button className={`${classes.btn}`}>Enter</button></Link>
       </form>
     </>

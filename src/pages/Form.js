@@ -4,24 +4,21 @@ import { useEffect, useState } from "react";
 import uniqueId from '../functions/id-generator'
 import firebase from "../firebase";
 import useInput from "../hooks/useInput";
+import { capitalizeSentence } from "../functions/capitalizeSentence";
 import { Link, Routes, Route, useNavigate, useParams } from "react-router-dom";
 import JobCard from "../components/JobCard";
 
 function Form() {
   const navigate = useNavigate();
   const params = useParams();
-  const loadParams = (params.formId) ? true : false;
-
-  console.log(`loadParams: ${loadParams}`)
 
   let prevData = {};
   useEffect(() => {
-    console.log(params.formId)
     const dbRef = firebase.database().ref(`review/${params.formId}`);
     dbRef.get().then(snapshot => {
       prevData = snapshot.val()
-      console.log(prevData)
       if (params.formId) {
+        prevData.description = prevData.description
         titleSetHandler(prevData.title)
         locationSetHandler(prevData.place)
         companySetHandler(prevData.company)
@@ -69,25 +66,19 @@ function Form() {
 
   let formIsValid = (titleIsValid && companyIsValid && locationIsValid && descriptionIsValid) ? true : false;
 
-  const testButton = () => {
-    console.log(prevData.title)
-  }
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const dbRef = firebase.database().ref('review');
     let newKey;
 
     const dataObj = {
-      id: uniqueId(2),
-      title: enteredTitle,
-      company: enteredCompany,
+      id: (params.formId || uniqueId(2)),
+      title: capitalizeSentence(enteredTitle.trim()),
+      company: capitalizeSentence(enteredCompany.trim()),
       link: "",
-      place: enteredLocation,
+      place: capitalizeSentence(enteredLocation.trim()),
       description: enteredDescription
     }
-
-    console.log(dataObj)
 
     // reset form
     resetTitle();
@@ -176,11 +167,10 @@ function Form() {
             maxLength="1000"
           >
           </textarea>
-          {descriptionHasError && <p className={classes.errorText}>description cannot be empty or less than 100 characters</p>}
+          {descriptionHasError && <p className={classes.errorText}>description cannot be empty or less than 150 characters</p>}
 
-          <button disabled={!formIsValid} className={classes.btn} onSubmit={handleSubmit}>Review Posting</button>
+          <button disabled={!formIsValid} className={classes.btn} onSubmit={handleSubmit}>Preview Posting</button>
         </form>
-        <button onClick={testButton}>Test Log</button>
       </main>
     </>
   )

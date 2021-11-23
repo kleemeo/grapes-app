@@ -257,7 +257,7 @@ input[type='text']:focus {
 }
 
 .navList {
-  max-width: 1200px;
+  max-width: 880px;
   & > ul.navBtnList {
     display: flex;
     justify-content: flex-end;
@@ -320,5 +320,38 @@ input[type='text']:focus {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.36);
     transform: scale(1.01);
     transition: all 0.2s ease-in;
+  }
+}
+
+// submission page
+
+.submitted {
+  margin: 0 auto;
+  padding: 50px 0;
+  width: 60%;
+  text-align: center;
+}
+
+.success {
+  i {
+    font-size: 2.5rem;
+    color: rgb(50, 204, 50);
+  }
+}
+
+.failed {
+  i {
+    font-size: 2.5rem;
+    color: rgb(204, 50, 50);
+  }
+}
+
+// loading
+
+.loading {
+  padding: 50px 0;
+  text-align: center;
+  i {
+    font-size: 3rem;
   }
 }

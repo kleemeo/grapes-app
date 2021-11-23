@@ -122,11 +122,27 @@ form {
       margin-top: 50px;
       align-self: center;
     }
+    .invalidInput {
+      border: 1px solid #b40e0e;
+      background-color: #ff9191;
+    }
+    .invalidInput:focus {
+      background-color: #3f3351;
+      border: 1px solid #e09cdc;
+    }
   }
 }
 
 form > * {
   margin-bottom: 1rem;
+}
+
+.errorText {
+  margin-top: -12px;
+  margin-bottom: 0;
+  text-align: right;
+  // padding-left: 1rem;
+  color: #f72d2d;
 }
 
 @mixin button {
@@ -148,6 +164,13 @@ form > * {
   &:active {
     transform: scale(0.95);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background: none;
+    background-color: #383838;
+    color: rgb(204, 204, 204);
   }
 }
 

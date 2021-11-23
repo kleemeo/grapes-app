@@ -60,7 +60,7 @@ function FormReview() {
           {isLoading && <Loading />}
           {isSubmitted && (
             <section className={`${classes.submitted} ${classes.failed}`}>
-              <i class="fas fa-times-circle"></i>
+              <i className="fas fa-times-circle"></i>
               <h4>Sorry! This posting was already submitted or doesn't exists anymore! Please try submitting again.</h4>
             </section>
           )}

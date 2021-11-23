@@ -32,7 +32,7 @@ function App() {
       </Route>
       <Route path="/dashboard" element={<EmployerDashboard />} />
       <Route path="/board" element={<MainBoard />} />
-      <Route path="/form" element={<Form />} />
+      <Route path="/form/" element={<Form />} />
     </Routes>
   );
 }

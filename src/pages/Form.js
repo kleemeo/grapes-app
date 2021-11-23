@@ -4,6 +4,8 @@ import { useState } from "react";
 import uniqueId from '../functions/id-generator'
 import firebase from "../firebase";
 import useInput from "../hooks/useInput";
+import { Link, Routes, Route } from "react-router-dom";
+import JobCard from "../components/JobCard";
 
 function Form() {
   const [userInput, setUserInput] = useState({
@@ -22,18 +24,21 @@ function Form() {
     hasError: titleHasError,
     valueChangeHandler: titleChangeHandler,
     inputBlurHandler: titleBlurHandler } = useInput(value => value.trim() !== '');
+
   const {
     value: enteredCompany,
     isValid: companyIsValid,
     hasError: companyHasError,
     valueChangeHandler: companyChangeHandler,
     inputBlurHandler: companyBlurHandler } = useInput(value => value.trim() !== '');
+
   const {
     value: enteredLocation,
     isValid: locationIsValid,
     hasError: locationHasError,
     valueChangeHandler: locationChangeHandler,
     inputBlurHandler: locationBlurHandler } = useInput(value => value.trim() !== '');
+
   const {
     value: enteredDescription,
     isValid: descriptionIsValid,
@@ -58,6 +63,18 @@ function Form() {
     e.preventDefault();
     const dbRef = firebase.database().ref('job-data');
     let newKey;
+
+    setUserInput({
+      ...userInput,
+      id: uniqueId(2),
+      title: enteredTitle,
+      company: enteredCompany,
+      link: "",
+      place: enteredLocation,
+      description: enteredDescription
+    })
+
+    console.log(userInput)
 
     // dbRef.once('value', snapshot => {
     //   newKey = snapshot.val().length
@@ -133,6 +150,10 @@ function Form() {
           {descriptionHasError && <p className={classes.errorText}>description cannot be empty or less than 100 characters</p>}
 
           <button disabled={!formIsValid} className={classes.btn}>Submit to Board</button>
+          <Routes>
+            <Route path="review" element={<h2>Test text</h2>} />
+          </Routes>
+          <Link to={'review'}>Test Link</Link>
         </form>
       </main>
     </>

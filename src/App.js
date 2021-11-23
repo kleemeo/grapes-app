@@ -6,6 +6,7 @@ import EmployerLogin from './components/EmployerLogin';
 import EmployerDashboard from './pages/EmployerDashboard';
 import MainBoard from './pages/MainBoard';
 import Form from './pages/Form';
+import FormReview from './pages/FormReview';
 
 import { useEffect, useState } from 'react';
 import firebase from './firebase';
@@ -32,7 +33,10 @@ function App() {
       </Route>
       <Route path="/dashboard" element={<EmployerDashboard />} />
       <Route path="/board" element={<MainBoard />} />
-      <Route path="/form/" element={<Form />} />
+      <Route path="/review" element={<FormReview />} />
+      <Route path="/form/*" element={<Form />} />
+      <Route path="/form/:formId" element={<Form />} />
+      <Route path="/review/:formId" element={<FormReview />} />
     </Routes>
   );
 }

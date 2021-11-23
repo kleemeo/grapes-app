@@ -1,21 +1,34 @@
 import Nav from "../components/Nav"
 import classes from '../App.module.scss';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import uniqueId from '../functions/id-generator'
 import firebase from "../firebase";
 import useInput from "../hooks/useInput";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, useNavigate, useParams } from "react-router-dom";
 import JobCard from "../components/JobCard";
 
 function Form() {
-  const [userInput, setUserInput] = useState({
-    id: uniqueId(2),
-    title: "",
-    company: "",
-    link: "",
-    place: "",
-    description: ""
-  })
+  const navigate = useNavigate();
+  const params = useParams();
+  const loadParams = (params.formId) ? true : false;
+
+  console.log(`loadParams: ${loadParams}`)
+
+  let prevData = {};
+  useEffect(() => {
+    console.log(params.formId)
+    const dbRef = firebase.database().ref(`review/${params.formId}`);
+    dbRef.get().then(snapshot => {
+      prevData = snapshot.val()
+      console.log(prevData)
+      if (params.formId) {
+        titleSetHandler(prevData.title)
+        locationSetHandler(prevData.place)
+        companySetHandler(prevData.company)
+        descriptionSetHandler(prevData.description)
+      }
+    })
+  }, [])
 
   // custom hook for form validation that can pass in a validation function
   const {
@@ -23,66 +36,82 @@ function Form() {
     isValid: titleIsValid,
     hasError: titleHasError,
     valueChangeHandler: titleChangeHandler,
-    inputBlurHandler: titleBlurHandler } = useInput(value => value.trim() !== '');
+    inputBlurHandler: titleBlurHandler,
+    paramSetHandler: titleSetHandler,
+    reset: resetTitle } = useInput(value => value.trim() !== '');
 
   const {
     value: enteredCompany,
     isValid: companyIsValid,
     hasError: companyHasError,
     valueChangeHandler: companyChangeHandler,
-    inputBlurHandler: companyBlurHandler } = useInput(value => value.trim() !== '');
+    inputBlurHandler: companyBlurHandler,
+    paramSetHandler: companySetHandler,
+    reset: resetCompany } = useInput(value => value.trim() !== '');
 
   const {
     value: enteredLocation,
     isValid: locationIsValid,
     hasError: locationHasError,
     valueChangeHandler: locationChangeHandler,
-    inputBlurHandler: locationBlurHandler } = useInput(value => value.trim() !== '');
+    inputBlurHandler: locationBlurHandler,
+    paramSetHandler: locationSetHandler,
+    reset: resetLocation } = useInput(value => value.trim() !== '');
 
   const {
     value: enteredDescription,
     isValid: descriptionIsValid,
     hasError: descriptionHasError,
     valueChangeHandler: descriptionChangeHandler,
-    inputBlurHandler: descriptionBlurHandler } = useInput(value => (value.trim() !== '' && value.length >= 100));
+    inputBlurHandler: descriptionBlurHandler,
+    paramSetHandler: descriptionSetHandler,
+    reset: resetDescription } = useInput(value => (value.trim() !== '' && value.length >= 150));
 
   let formIsValid = (titleIsValid && companyIsValid && locationIsValid && descriptionIsValid) ? true : false;
 
-  const handleInputChange = e => {
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
-
-    setUserInput({
-      ...userInput,
-      [name]: value
-    })
+  const testButton = () => {
+    console.log(prevData.title)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dbRef = firebase.database().ref('job-data');
+    const dbRef = firebase.database().ref('review');
     let newKey;
 
-    setUserInput({
-      ...userInput,
+    const dataObj = {
       id: uniqueId(2),
       title: enteredTitle,
       company: enteredCompany,
       link: "",
       place: enteredLocation,
       description: enteredDescription
-    })
+    }
 
-    console.log(userInput)
+    console.log(dataObj)
 
+    // reset form
+    resetTitle();
+    resetCompany();
+    resetLocation();
+    resetDescription();
+
+    // update to firebase
     // dbRef.once('value', snapshot => {
     //   newKey = snapshot.val().length
     //   console.log(newKey);
-    //   const newRef = firebase.database().ref(`job-data/${newKey}`);
-    //   newRef.update(userInput);
-    //   console.log(`${newKey}: ${userInput}`)
+    //   if (newKey === 0) {
+    //     const newRef = firebase.database().ref('review/0');
+    //     newRef.update(dataObj);
+    //   }
+    //   const newRef = firebase.database().ref(`review/${newKey}`);
+    //   newRef.update(dataObj);
+    //   console.log(`${newKey}: ${dataObj}`)
     // })
+
+    const newRef = firebase.database().ref(`review/${dataObj.id}`);
+    newRef.set(dataObj);
+
+    navigate(`/review/${dataObj.id}`);
   }
 
   return (
@@ -149,12 +178,9 @@ function Form() {
           </textarea>
           {descriptionHasError && <p className={classes.errorText}>description cannot be empty or less than 100 characters</p>}
 
-          <button disabled={!formIsValid} className={classes.btn}>Submit to Board</button>
-          <Routes>
-            <Route path="review" element={<h2>Test text</h2>} />
-          </Routes>
-          <Link to={'review'}>Test Link</Link>
+          <button disabled={!formIsValid} className={classes.btn} onSubmit={handleSubmit}>Review Posting</button>
         </form>
+        <button onClick={testButton}>Test Log</button>
       </main>
     </>
   )

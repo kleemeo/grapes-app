@@ -1,8 +1,6 @@
 import classes from '../App.module.scss';
 
 function JobCard(props) {
-
-
   return (
     <article className={classes.jobCard}>
       <h4>{props.title}</h4>

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const useInput = (validateFunc) => {
   const [inputValue, setInputValue] = useState('');
+
   const [isTouched, setIsTouched] = useState(false);
 
   const valueIsValid = validateFunc(inputValue);
@@ -12,6 +13,10 @@ const useInput = (validateFunc) => {
   }
   const inputBlurHandler = (e) => {
     setIsTouched(true);
+  }
+
+  const paramSetHandler = (value) => {
+    setInputValue(value)
   }
 
   const reset = () => {
@@ -25,6 +30,7 @@ const useInput = (validateFunc) => {
     valueChangeHandler,
     isValid: valueIsValid,
     inputBlurHandler,
+    paramSetHandler,
     reset
   }
 }

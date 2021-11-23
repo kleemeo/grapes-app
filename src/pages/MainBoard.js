@@ -3,6 +3,7 @@ import classes from '../App.module.scss';
 import JobCard from "../components/JobCard";
 import { useEffect, useState } from "react";
 import firebase from '../firebase';
+import Loading from "../components/Loading";
 
 // const getDataFromFb = () => {
 
@@ -50,7 +51,7 @@ function EmployerDashboard() {
     <>
       <Nav currentView="seeker" />
       <main className={`${classes.cardFull} ${classes.topShadow} ${classes.jobBoard}`}>
-        {(isLoading) && <h2>LOADING...</h2>}
+        {(isLoading) && <Loading />}
         {jobData.map((job) => {
           return (
             <JobCard

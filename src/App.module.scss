@@ -176,7 +176,7 @@ form > * {
 
 .btn {
   @include button;
-  width: 65%;
+  width: 80%;
 }
 
 .filterList {
@@ -208,7 +208,7 @@ input[type='text'] {
   font-size: 1rem;
   text-align: center;
   border: none;
-  width: calc(65% - 24px);
+  width: calc(80% - 24px);
   border-radius: 10px;
   background-color: #3f3351;
   padding: 0.75rem;
@@ -349,6 +349,7 @@ input[type='text']:focus {
 // loading
 
 .loading {
+  margin: 0 auto;
   padding: 50px 0;
   text-align: center;
   i {

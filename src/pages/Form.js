@@ -1,31 +1,15 @@
 import Nav from "../components/Nav"
 import classes from '../App.module.scss';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import uniqueId from '../functions/id-generator'
 import firebase from "../firebase";
-import useInput from "../hooks/useInput";
+import useInput from "../hooks/use-input";
 import { capitalizeSentence } from "../functions/capitalizeSentence";
-import { Link, Routes, Route, useNavigate, useParams } from "react-router-dom";
-import JobCard from "../components/JobCard";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Form() {
   const navigate = useNavigate();
   const params = useParams();
-
-  let prevData = {};
-  useEffect(() => {
-    const dbRef = firebase.database().ref(`review/${params.formId}`);
-    dbRef.get().then(snapshot => {
-      prevData = snapshot.val()
-      if (params.formId) {
-        prevData.description = prevData.description
-        titleSetHandler(prevData.title)
-        locationSetHandler(prevData.place)
-        companySetHandler(prevData.company)
-        descriptionSetHandler(prevData.description)
-      }
-    })
-  }, [])
 
   // custom hook for form validation that can pass in a validation function
   const {
@@ -66,10 +50,21 @@ function Form() {
 
   let formIsValid = (titleIsValid && companyIsValid && locationIsValid && descriptionIsValid) ? true : false;
 
+  // let prevData = {};
+  useEffect(() => {
+    const dbRef = firebase.database().ref(`review/${params.formId}`);
+    dbRef.get().then(snapshot => {
+      if (params.formId) {
+        titleSetHandler(snapshot.val().title)
+        locationSetHandler(snapshot.val().place)
+        companySetHandler(snapshot.val().company)
+        descriptionSetHandler(snapshot.val().description)
+      }
+    })
+  }, [titleSetHandler, locationSetHandler, companySetHandler, descriptionSetHandler, params.formId])
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dbRef = firebase.database().ref('review');
-    let newKey;
 
     const dataObj = {
       id: (params.formId || uniqueId(2)),
@@ -85,19 +80,6 @@ function Form() {
     resetCompany();
     resetLocation();
     resetDescription();
-
-    // update to firebase
-    // dbRef.once('value', snapshot => {
-    //   newKey = snapshot.val().length
-    //   console.log(newKey);
-    //   if (newKey === 0) {
-    //     const newRef = firebase.database().ref('review/0');
-    //     newRef.update(dataObj);
-    //   }
-    //   const newRef = firebase.database().ref(`review/${newKey}`);
-    //   newRef.update(dataObj);
-    //   console.log(`${newKey}: ${dataObj}`)
-    // })
 
     const newRef = firebase.database().ref(`review/${dataObj.id}`);
     newRef.set(dataObj);

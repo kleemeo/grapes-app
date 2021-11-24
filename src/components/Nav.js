@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import classes from '../App.module.scss';
 
 function Nav(props) {
@@ -9,10 +9,10 @@ function Nav(props) {
         <ul className={classes.navBtnList}>
           <li>
             {props.currentView === 'employer' && <Link to="/board">Board</Link>}
-            {props.currentView === 'seeker' && null}
+            {props.currentView === 'seeker' && <Link to="/employer">Employer? Login</Link>}
             {props.currentView === 'form' && <Link to="/dashboard">Back</Link>}
           </li>
-          <li><Link to="/">Home</Link></li>
+          {/* <li><Link to="/">Home</Link></li> */}
         </ul>
       </ul>
     </nav>

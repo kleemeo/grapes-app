@@ -5,24 +5,6 @@ import { useEffect, useState } from "react";
 import firebase from '../firebase';
 import Loading from "../components/Loading";
 
-// const getDataFromFb = () => {
-
-//   const dbRef = firebase.database().ref('job-data');
-
-//   let dbData;
-
-//   dbRef.on('value', snapshot => {
-//     const data = snapshot.val();
-//     dbData = data;
-//     dbData.forEach((job, index) => {
-//       job.description = job.description.slice(0, 500)
-//       console.log(job.description)
-//     })
-//   })
-
-
-// }
-
 function EmployerDashboard() {
 
   const [jobData, setJobData] = useState([]);
@@ -40,7 +22,6 @@ function EmployerDashboard() {
       dbData.forEach(job => {
         job.description = job.description.slice(0, 500)
       })
-      console.log(dbData)
       setJobData(dbData)
       setIsLoading(false);
     })

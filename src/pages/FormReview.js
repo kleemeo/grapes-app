@@ -1,10 +1,8 @@
 import Nav from "../components/Nav"
 import classes from '../App.module.scss';
 import { useState, useEffect } from "react";
-import uniqueId from '../functions/id-generator'
 import firebase from "../firebase";
-import useInput from "../hooks/useInput";
-import { Link, Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 
 function FormReview() {
@@ -24,8 +22,7 @@ function FormReview() {
     }).then(() => {
       setIsLoading(false);
     })
-
-  }, [])
+  }, [params.formId])
 
   const handleSubmit = (e) => {
     e.preventDefault();

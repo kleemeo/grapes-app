@@ -7,6 +7,7 @@ function FormSubmitted() {
   const [submitSuccess, setSubmitSuccess] = useState(true);
 
   useEffect(() => {
+    setSubmitSuccess(false);
   }, [])
 
   return (

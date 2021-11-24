@@ -85,6 +85,10 @@ a {
   }
 }
 
+.inlineBlock {
+  display: block;
+}
+
 form {
   text-align: center;
 
@@ -177,6 +181,7 @@ form > * {
 .btn {
   @include button;
   width: 80%;
+  margin-bottom: 10px;
 }
 
 .filterList {

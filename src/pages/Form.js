@@ -54,17 +54,19 @@ function Form() {
   useEffect(() => {
     const dbRef = firebase.database().ref(`review/${params.formId}`);
     dbRef.get().then(snapshot => {
-
       if (params.formId) {
-        titleSetHandler(snapshot.val().title)
-        locationSetHandler(snapshot.val().place)
-        companySetHandler(snapshot.val().company)
-        descriptionSetHandler(snapshot.val().description)
+        initialReviewData(snapshot.val())
       }
-      // console.log(snapshot.val())
     })
-  }, [])
+    // eslint-disable-next-line
+  }, [params.formId])
 
+  const initialReviewData = (dataObject => {
+    titleSetHandler(dataObject.title)
+    locationSetHandler(dataObject.place)
+    companySetHandler(dataObject.company)
+    descriptionSetHandler(dataObject.description)
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();

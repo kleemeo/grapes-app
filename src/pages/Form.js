@@ -2,10 +2,10 @@ import Nav from "../components/Nav"
 import classes from '../App.module.scss';
 import { useEffect } from "react";
 import uniqueId from '../functions/id-generator'
-import firebase from "../firebase";
 import useInput from "../hooks/use-input";
 import { capitalizeSentence } from "../functions/capitalizeSentence";
 import { useNavigate, useParams } from "react-router-dom";
+import firebase from "../firebase";
 
 function Form() {
   const navigate = useNavigate();
@@ -54,14 +54,17 @@ function Form() {
   useEffect(() => {
     const dbRef = firebase.database().ref(`review/${params.formId}`);
     dbRef.get().then(snapshot => {
+
       if (params.formId) {
         titleSetHandler(snapshot.val().title)
         locationSetHandler(snapshot.val().place)
         companySetHandler(snapshot.val().company)
         descriptionSetHandler(snapshot.val().description)
       }
+      // console.log(snapshot.val())
     })
-  }, [titleSetHandler, locationSetHandler, companySetHandler, descriptionSetHandler, params.formId])
+  }, [])
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -96,7 +99,7 @@ function Form() {
 
           <label htmlFor="title" >job title</label>
           <input
-            className={titleHasError && classes.invalidInput}
+            className={titleHasError ? classes.invalidInput : undefined}
             type="text"
             name="title"
             id="title"
@@ -106,11 +109,11 @@ function Form() {
             value={enteredTitle}
             maxLength="50"
           />
-          {titleHasError && <p className={classes.errorText}>input cannot be empty</p>}
+          {titleHasError ? <p className={classes.errorText}>input cannot be empty</p> : undefined}
 
           <label htmlFor="companyName">company name</label>
           <input
-            className={companyHasError && classes.invalidInput}
+            className={companyHasError ? classes.invalidInput : undefined}
             type="text"
             name="company"
             id="companyName"
@@ -120,11 +123,11 @@ function Form() {
             value={enteredCompany}
             maxLength="50"
           />
-          {companyHasError && <p className={classes.errorText}>name cannot be empty</p>}
+          {companyHasError ? <p className={classes.errorText}>name cannot be empty</p> : undefined}
 
           <label htmlFor="location">location</label>
           <input
-            className={locationHasError && classes.invalidInput}
+            className={locationHasError ? classes.invalidInput : undefined}
             type="text"
             name="place"
             id="location"
@@ -134,11 +137,11 @@ function Form() {
             value={enteredLocation}
             maxLength="35"
           />
-          {locationHasError && <p className={classes.errorText}>location cannot be empty</p>}
+          {locationHasError ? <p className={classes.errorText}>location cannot be empty</p> : undefined}
 
           <label htmlFor="description">job description</label>
           <textarea
-            className={descriptionHasError && classes.invalidInput}
+            className={descriptionHasError ? classes.invalidInput : undefined}
             rows="5"
             cols="50"
             name="description"
@@ -149,7 +152,7 @@ function Form() {
             maxLength="1000"
           >
           </textarea>
-          {descriptionHasError && <p className={classes.errorText}>description cannot be empty or less than 150 characters</p>}
+          {descriptionHasError ? <p className={classes.errorText}>description cannot be empty or less than 150 characters</p> : undefined}
 
           <button disabled={!formIsValid} className={classes.btn} onSubmit={handleSubmit}>Preview Posting</button>
         </form>

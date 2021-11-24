@@ -144,7 +144,7 @@ form > * {
 .invalidCode {
   border: 1px solid #b40e0e;
   background-color: #ff9191;
-  animation: horizontalShake 1s ease forwards, redFade 0.2s ease forwards;
+  animation: horizontalShake 0.5s ease forwards, redFade 0.2s ease forwards;
 }
 .invalidCode:focus,
 .invalidCode:active {

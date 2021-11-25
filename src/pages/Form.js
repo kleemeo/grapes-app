@@ -50,7 +50,6 @@ function Form() {
 
   let formIsValid = (titleIsValid && companyIsValid && locationIsValid && descriptionIsValid) ? true : false;
 
-  // let prevData = {};
   useEffect(() => {
     const dbRef = firebase.database().ref(`review/${params.formId}`);
     dbRef.get().then(snapshot => {
@@ -71,13 +70,16 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    let today = new Date().toLocaleDateString()
+
     const dataObj = {
       id: (params.formId || uniqueId(2)),
       title: capitalizeSentence(enteredTitle.trim()),
       company: capitalizeSentence(enteredCompany.trim()),
       link: "",
       place: capitalizeSentence(enteredLocation.trim()),
-      description: enteredDescription
+      description: enteredDescription,
+      date: today
     }
 
     // reset form

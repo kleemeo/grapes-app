@@ -1,10 +1,11 @@
 const fakeAuth = {
   isAuthenticated: false,
-  signin: function (callback) {
+  signin(callback) {
     this.isAuthenticated = true;
+    console.log(this.isAuthenticated)
     setTimeout(callback, 100);
   },
-  signout: function (callback) {
+  signout(callback) {
     this.isAuthenticated = false;
   }
 }

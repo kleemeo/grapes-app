@@ -20,14 +20,10 @@ function App() {
         <Route path="/seeker" element={<SeekerLogin />} />
         <Route path="/board" element={<MainBoard />} />
         <Route path="/employer" element={<EmployerLogin />} />
-        <Route path="/dashboard" element={
-          <RequireAuth>
-            <EmployerDashboard />
-          </RequireAuth>
-        } />
-        <Route path="/review" element={<RequireAuth><FormReview /></RequireAuth>} />
+        <Route path="/dashboard" element={<RequireAuth><EmployerDashboard /></RequireAuth>} />
         <Route path="/form/*" element={<RequireAuth><Form /></RequireAuth>} />
         <Route path="/form/:formId" element={<RequireAuth><Form /></RequireAuth>} />
+        <Route path="/review" element={<RequireAuth><FormReview /></RequireAuth>} />
         <Route path="/review/:formId" element={<RequireAuth><FormReview /></RequireAuth>} />
         <Route path="/submit/:formId" element={<RequireAuth><FormSubmitted /></RequireAuth>} />
       </Routes>

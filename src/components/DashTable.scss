@@ -26,7 +26,7 @@ table {
     font-weight: 500;
   }
   tr > td:nth-child(3) {
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
   tr > td:nth-child(4) {
     padding-left: 1rem;
@@ -34,9 +34,7 @@ table {
 
   tbody > tr:hover,
   tbody > tr:focus {
-    transform: scale(1.01);
     background: #864879;
-    transition: all 0.2s ease-in-out;
   }
 }
 

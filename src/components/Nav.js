@@ -9,7 +9,7 @@ function Nav(props) {
         <ul className={classes.navBtnList}>
           <li>
             {props.currentView === 'employer' && <Link to="/board">Board</Link>}
-            {props.currentView === 'seeker' && <Link to="/employer">Employer? Login</Link>}
+            {props.currentView === 'seeker' && <Link to="/dashboard">Employer? Login</Link>}
             {props.currentView === 'form' && <Link to="/dashboard">Back</Link>}
           </li>
           {/* <li><Link to="/">Home</Link></li> */}

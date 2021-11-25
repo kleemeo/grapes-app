@@ -1,61 +1,81 @@
 [
   {
-    "Role": "Geological Engineer",
-    "Date Posted": "03/31/2021",
+    "title": "Geological Engineer",
+    "date": "03/31/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 15,
     "Saves": 32
   },
   {
-    "Role": "Senior Developer",
-    "Date Posted": "11/13/2021",
+    "title": "Senior Developer",
+    "date": "11/13/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 11,
     "Saves": 71
   },
   {
-    "Role": "Office Assistant IV",
-    "Date Posted": "12/11/2020",
+    "title": "Office Assistant IV",
+    "date": "12/11/2020",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 10,
     "Saves": 73
   },
   {
-    "Role": "Biostatistician III",
-    "Date Posted": "02/10/2021",
+    "title": "Biostatistician III",
+    "date": "02/10/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 11,
     "Saves": 63
   },
   {
-    "Role": "Electrical Engineer",
-    "Date Posted": "04/10/2021",
+    "title": "Electrical Engineer",
+    "date": "04/10/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 13,
     "Saves": 65
   },
   {
-    "Role": "VP Sales",
-    "Date Posted": "04/24/2021",
+    "title": "VP Sales",
+    "date": "04/24/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 21,
     "Saves": 19
   },
   {
-    "Role": "Assistant Professor",
-    "Date Posted": "02/14/2021",
+    "title": "Assistant Professor",
+    "date": "02/14/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 22,
     "Saves": 50
   },
   {
-    "Role": "Software Engineer I",
-    "Date Posted": "04/12/2021",
+    "title": "Software Engineer I",
+    "date": "04/12/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 11,
     "Saves": 52
   },
   {
-    "Role": "Geological Engineer",
-    "Date Posted": "06/08/2021",
+    "title": "Geological Engineer",
+    "date": "06/08/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 15,
     "Saves": 10
   },
   {
-    "Role": "Nuclear Power Engineer",
-    "Date Posted": "08/28/2021",
+    "title": "Nuclear Power Engineer",
+    "date": "08/28/2021",
+    "place": "Toronto, ON",
+    "company": "Juno College",
     "Submissions": 6,
     "Saves": 94
   }

@@ -39,7 +39,10 @@ function FormReview() {
         const newRef = firebase.database().ref(`job-data/${newKey}`);
         newRef.update(data);
       }
-      console.log(`${newKey}: ${data}`)
+      const postingsRef = firebase.database().ref(`postings/${newKey}`);
+      postingsRef.update(data);
+
+      // console.log(`${newKey}: ${data}`)
     })
 
     // gets removed from review data stack

@@ -129,10 +129,12 @@ form {
     .invalidInput {
       border: 1px solid #b40e0e;
       background-color: #ff9191;
+      color: #3f3351;
     }
     .invalidInput:focus {
       background-color: #3f3351;
       border: 1px solid #e09cdc;
+      color: #ffffff;
     }
   }
 }
@@ -144,7 +146,7 @@ form > * {
 .invalidCode {
   border: 1px solid #b40e0e;
   background-color: #ff9191;
-  animation: horizontalShake 0.5s ease forwards, redFade 0.2s ease forwards;
+  animation: horizontalShake 0.5s ease forwards, redFade 0.2s ease-out forwards;
 }
 .invalidCode:focus,
 .invalidCode:active {
@@ -154,7 +156,7 @@ form > * {
 
 @keyframes redFade {
   0% {
-    background-color: #b40e0e;
+    background-color: #be4b4b;
   }
   100% {
     background-color: #3f3351;
@@ -162,44 +164,26 @@ form > * {
 }
 
 @keyframes horizontalShake {
-  3%,
-  12%,
-  21%,
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
   30%,
-  39%,
-  48%,
-  57%,
-  65%,
-  74%,
-  83%,
-  92% {
+  50%,
+  70% {
+    transform: translateX(-5px);
+  }
+  20%,
+  40%,
+  60% {
     transform: translateX(5px);
   }
-  6%,
-  15%,
-  24%,
-  33%,
-  42%,
-  51%,
-  60%,
-  68%,
-  77%,
-  86%,
-  95% {
-    transform: translateX(3px);
+  80% {
+    transform: translateX(4px);
   }
-  9%,
-  18%,
-  27%,
-  36%,
-  45%,
-  54%,
-  63%,
-  71%,
-  80%,
-  89%,
-  98% {
-    transform: translateX(-5px);
+  90% {
+    transform: translateX(-4px);
   }
 }
 
@@ -421,5 +405,29 @@ input:focus {
   text-align: center;
   i {
     font-size: 3rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .cardFull {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardFull {
+    width: 100%;
+  }
+  form.addJob {
+    width: 90%;
+  }
+
+  section.submitted {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100vh;
   }
 }

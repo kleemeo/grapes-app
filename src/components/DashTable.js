@@ -41,31 +41,45 @@ function Table({ columns, data }) {
           )
         })}
       </tbody>
-    </table>
+    </table >
   )
 }
 
 function DashTable() {
+
   const columns = useMemo(() => [
     {
       Header: 'Role',
-      accessor: 'Role'
+      accessor: 'title'
+    },
+    // {
+    //   Header: 'Company',
+    //   accessor: 'company'
+    // },
+    {
+      Header: 'Location',
+      accessor: 'place'
     },
     {
       Header: 'Data Posted',
-      accessor: 'Date Posted'
-    },
-    {
-      Header: 'Submissions',
-      accessor: 'Submissions'
-    },
-    {
-      Header: 'Saves',
-      accessor: 'Saves'
+      accessor: 'date'
     }
+    // {
+    //   Header: 'Saves',
+    //   accessor: 'Saves'
+    // }
   ], [])
 
+
+
+  // postData.forEach(job => {
+  //   MOCK_DATA.push(job);
+  // })
+
+  // console.log(MOCK_DATA)
+
   const data = useMemo(() => MOCK_DATA, [])
+  // const data = useMemo(() => postData, [])
 
   return (
     <Table columns={columns} data={data} />

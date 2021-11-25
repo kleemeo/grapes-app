@@ -1,5 +1,5 @@
 import { useState, useContext, createContext } from "react";
-import { Navigate } from "react-router";
+import { Navigate, useLocation } from "react-router";
 import { fakeAuth } from "../functions/fakeAuth";
 
 const authContext = createContext();
@@ -31,9 +31,10 @@ export function useAuth() {
 
 export function RequireAuth({ children }) {
   let auth = useAuth();
+  let location = useLocation();
 
   if (!auth.user) {
-    return <Navigate to="/" />
+    return <Navigate to="/" state={{ from: location }} />
   }
 
   return children;

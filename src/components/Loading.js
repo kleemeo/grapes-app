@@ -1,5 +1,6 @@
 import classes from '../App.module.scss';
 
+// loading component for load
 function Loading() {
   return (
     <section className={classes.loading}>

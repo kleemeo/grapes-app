@@ -1,3 +1,5 @@
+// capitalization function
+
 export const capitalizeSentence = (string) => {
   const sentence = string;
 

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import classes from '../App.module.scss';
 
+
+// not currently used, used in another version
 function SeekerLogin() {
   return (
     <section className={classes.wrapperLogin}>

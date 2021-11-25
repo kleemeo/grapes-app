@@ -2,8 +2,10 @@ import { useState, useContext, createContext } from "react";
 import { Navigate, useLocation } from "react-router";
 import { fakeAuth } from "../functions/fakeAuth";
 
+// create context for auth
 const authContext = createContext();
 
+// AuthProvider to wrap children adapted and edited based on react-router docs
 export function AuthProvider({ children }) {
   let [user, setUser] = useState(null);
 

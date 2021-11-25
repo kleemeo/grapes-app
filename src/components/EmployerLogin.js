@@ -8,8 +8,10 @@ function EmployerLogin() {
   let navigate = useNavigate();
   let [enteredCode, setEnteredCode] = useState('');
   let [codeIsInvalid, setCodeIsInvalid] = useState(false);
+  // useAuth() to use context for router auth context
   let auth = useAuth();
 
+  // input handler
   const codeInputHandler = (e) => {
     let enteredVal = e.target.value;
     setCodeIsInvalid(false)
@@ -22,10 +24,12 @@ function EmployerLogin() {
     dbRef.get().then(snapshot => {
       const key = snapshot.val().toString()
       if (enteredCode === key) {
+        // handle sign in function if enteredCode = key code on database
         auth.signin('user', () => {
           navigate('/dashboard')
         });
       } else {
+        // incorrect input -> code is invalid triggers css class for error for shake effect/red fade
         setCodeIsInvalid(true);
         setEnteredCode('');
       }

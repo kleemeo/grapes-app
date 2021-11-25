@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+// custom hook for handling form input validation
+
 const useInput = (validateFunc) => {
   const [inputValue, setInputValue] = useState('');
 

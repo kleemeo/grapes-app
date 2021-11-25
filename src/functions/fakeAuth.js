@@ -1,3 +1,5 @@
+// fake authentication function based on react-router docs
+
 const fakeAuth = {
   isAuthenticated: false,
   signin(callback) {

@@ -1,5 +1,6 @@
 import classes from '../App.module.scss';
 
+// individual cards to show posting
 function JobCard(props) {
   return (
     <article className={classes.jobCard}>

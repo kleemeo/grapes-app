@@ -1,7 +1,7 @@
 import Nav from "../components/Nav"
 import classes from '../App.module.scss';
 import { useEffect } from "react";
-import uniqueId from '../functions/id-generator'
+import uniqueId from '../functions/idGenerator'
 import useInput from "../hooks/use-input";
 import { capitalizeSentence } from "../functions/capitalizeSentence";
 import { useNavigate, useParams } from "react-router-dom";

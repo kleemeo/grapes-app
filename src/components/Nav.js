@@ -5,7 +5,7 @@ function Nav(props) {
   return (
     <nav className={classes.nav}>
       <ul className={classes.navList}>
-        <h1>Grapes</h1>
+        <h1><Link to="/" className={classes.logo}>Grapes</Link></h1>
         <ul className={classes.navBtnList}>
           <li>
             {props.currentView === 'employer' && <Link to="/board">Board</Link>}

@@ -5,7 +5,7 @@ import './DashTable.scss'
 
 
 function Table({ columns, data }) {
-  // Use the state and functions returned from useTable to build your UI
+  // using react-table to populate a table
   const {
     getTableProps,
     getTableBodyProps,
@@ -17,7 +17,7 @@ function Table({ columns, data }) {
     data,
   })
 
-  // Render the UI for your table
+  // render to table
   return (
     <table {...getTableProps()} >
       <thead className="test">
@@ -46,16 +46,12 @@ function Table({ columns, data }) {
 }
 
 function DashTable() {
-
+  // Set columns heading + data point in data objects
   const columns = useMemo(() => [
     {
       Header: 'Role',
       accessor: 'title'
     },
-    // {
-    //   Header: 'Company',
-    //   accessor: 'company'
-    // },
     {
       Header: 'Location',
       accessor: 'place'
@@ -64,22 +60,9 @@ function DashTable() {
       Header: 'Data Posted',
       accessor: 'date'
     }
-    // {
-    //   Header: 'Saves',
-    //   accessor: 'Saves'
-    // }
   ], [])
 
-
-
-  // postData.forEach(job => {
-  //   MOCK_DATA.push(job);
-  // })
-
-  // console.log(MOCK_DATA)
-
   const data = useMemo(() => MOCK_DATA, [])
-  // const data = useMemo(() => postData, [])
 
   return (
     <Table columns={columns} data={data} />

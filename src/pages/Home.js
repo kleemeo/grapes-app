@@ -3,11 +3,16 @@ import { Link } from 'react-router-dom';
 
 function Home() {
   return (
-    <section className={classes.wrapperLogin}>
-      <article className={classes['cardMed']}>
-        <Landing />
-      </article>
-    </section>
+    <>
+      <main>
+        <section className={classes.wrapperLogin}>
+          <article className={classes['cardMed']}>
+            <Landing />
+          </article>
+        </section>
+      </main>
+      <footer><a href="https://junocollege.com/">Created at Juno College</a></footer>
+    </>
   )
 }
 

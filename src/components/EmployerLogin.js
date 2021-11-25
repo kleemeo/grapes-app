@@ -37,18 +37,21 @@ function EmployerLogin() {
   }
 
   return (
-    <section className={classes.wrapperLogin}>
-      <article className={classes['cardMed']}>
-        <h1>Hi, Employer</h1>
-        <p>enter your code</p>
-        <form className={classes.loginForm} onSubmit={handleSubmit}>
-          <label htmlFor="employerCode"></label>
-          <input autoFocus="autofocus" autoComplete="new-password" className={codeIsInvalid ? classes.invalidCode : undefined} type="password" id="employerCode" maxLength="10" onChange={codeInputHandler} value={enteredCode} />
-          <button className={`${classes.btn}`} >Enter</button>
-          <Link className={classes.inlineBlock} to="/">Back</Link>
-        </form>
-      </article>
-    </section>
+    <>
+      <section className={classes.wrapperLogin}>
+        <article className={classes['cardMed']}>
+          <h1>Hi, Employer</h1>
+          <p>enter your code</p>
+          <form className={classes.loginForm} onSubmit={handleSubmit}>
+            <label htmlFor="employerCode"></label>
+            <input autoFocus="autofocus" autoComplete="new-password" className={codeIsInvalid ? classes.invalidCode : undefined} type="password" id="employerCode" maxLength="10" onChange={codeInputHandler} value={enteredCode} />
+            <button className={`${classes.btn}`} >Enter</button>
+            <Link className={classes.inlineBlock} to="/">Back</Link>
+          </form>
+        </article>
+      </section>
+      <footer><a href="https://junocollege.com/">Created at Juno College</a></footer>
+    </>
   )
 }
 

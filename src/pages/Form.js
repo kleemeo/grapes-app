@@ -164,6 +164,7 @@ function Form() {
           <button disabled={!formIsValid} className={classes.btn} onSubmit={handleSubmit}>Preview Posting</button>
         </form>
       </main>
+      <footer><a href="https://junocollege.com/">Created at Juno College</a></footer>
     </>
   )
 }

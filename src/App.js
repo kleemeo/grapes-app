@@ -29,6 +29,7 @@ function App() {
         <Route path="/submit/:formId" element={<RequireAuth><FormSubmitted /></RequireAuth>} />
       </Routes>
     </AuthProvider>
+
   );
 }
 

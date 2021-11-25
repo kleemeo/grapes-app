@@ -2,7 +2,6 @@ import classes from '../App.module.scss';
 import { Link } from 'react-router-dom';
 
 function Home() {
-
   return (
     <section className={classes.wrapperLogin}>
       <article className={classes['cardMed']}>

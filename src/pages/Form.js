@@ -11,7 +11,7 @@ function Form() {
   const navigate = useNavigate();
   const params = useParams();
 
-  // custom hook for form validation that can pass in a validation function
+  // custom hook for form validation that can pass in a validation function, adds error class if it has error
   const {
     value: enteredTitle,
     isValid: titleIsValid,
@@ -60,6 +60,7 @@ function Form() {
     // eslint-disable-next-line
   }, [params.formId])
 
+  // populate data if it's entered with a :id in the url
   const initialReviewData = (dataObject => {
     titleSetHandler(dataObject.title)
     locationSetHandler(dataObject.place)
@@ -72,6 +73,7 @@ function Form() {
 
     let today = new Date().toLocaleDateString()
 
+    // dataObj to populate database
     const dataObj = {
       id: (params.formId || uniqueId(2)),
       title: capitalizeSentence(enteredTitle.trim()),
@@ -91,6 +93,7 @@ function Form() {
     const newRef = firebase.database().ref(`review/${dataObj.id}`);
     newRef.set(dataObj);
 
+    // navigate to review page with data id after submit
     navigate(`/review/${dataObj.id}`);
   }
 

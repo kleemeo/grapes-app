@@ -11,7 +11,8 @@ import FormSubmitted from './pages/FormSubmitted';
 import { RequireAuth, AuthProvider, } from './hooks/use-auth';
 
 function App() {
-
+  // react router v6 setup
+  // RequiredAuth for password protected paths
   return (
     <AuthProvider>
       <Routes>

@@ -11,11 +11,9 @@ function EmployerDashboard() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-
+    // fetch data from firebase to populate job board
     const dbRef = firebase.database().ref('job-data');
-
     let dbData;
-
     dbRef.on('value', snapshot => {
       const data = snapshot.val().reverse();
       dbData = data;
@@ -35,6 +33,7 @@ function EmployerDashboard() {
         {(isLoading) && <Loading />}
         {jobData.map((job) => {
           return (
+            // renter to JobCard with fetched date into props
             <JobCard
               key={job.id}
               title={job.title}

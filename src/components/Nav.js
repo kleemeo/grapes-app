@@ -11,7 +11,7 @@ function Nav(props) {
           <li>
             {/* set what links to show depending on page */}
             {props.currentView === 'employer' && <Link to="/board">Board</Link>}
-            {props.currentView === 'seeker' && <Link to="/dashboard">Employer? Login</Link>}
+            {props.currentView === 'seeker' && <Link to="/employer">Employer? Login</Link>}
             {props.currentView === 'form' && <Link to="/dashboard">Back</Link>}
           </li>
         </ul>

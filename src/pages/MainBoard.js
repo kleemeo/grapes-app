@@ -12,14 +12,17 @@ function EmployerDashboard() {
 
   useEffect(() => {
     // fetch data from firebase to populate job board
-    const dbRef = firebase.database().ref('job-data');
+
+    // const dbRef = firebase.database().ref('job-data');
+    const dbRef2 = firebase.database().ref('indeed-scrape2');
     let dbData;
-    dbRef.on('value', snapshot => {
+
+    dbRef2.on('value', snapshot => {
       const data = snapshot.val().reverse();
       dbData = data;
-      dbData.forEach(job => {
-        job.description = job.description.slice(0, 500)
-      })
+      // dbData.forEach(job => {
+      //   job.description = job.description.slice(0, 500)
+      // })
       setJobData(dbData)
       setIsLoading(false);
     })
@@ -29,7 +32,7 @@ function EmployerDashboard() {
   return (
     <>
       <Nav currentView="seeker" />
-      <main className={`${classes.cardFull} ${classes.topShadow} ${classes.jobBoard}`}>
+      <main className={`${classes.jobBoard}`}>
         {(isLoading) && <Loading />}
         {jobData.map((job) => {
           return (
@@ -38,9 +41,11 @@ function EmployerDashboard() {
               key={job.id}
               title={job.title}
               companyName={job.company}
-              location={job.place}
-              description={job.description + '...'}
-              url={(job.link) && job.link}
+              // location={job.place}
+              location={job.location}
+              description={job.summary}
+              // description={job.description + '...'}
+              url={(job.url) && job.url}
             />
           )
         })}

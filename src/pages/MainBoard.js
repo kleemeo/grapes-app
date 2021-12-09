@@ -18,7 +18,7 @@ function EmployerDashboard() {
     let dbData;
 
     dbRef2.on('value', snapshot => {
-      const data = snapshot.val().reverse();
+      const data = snapshot.val();
       dbData = data;
       // dbData.forEach(job => {
       //   job.description = job.description.slice(0, 500)
@@ -32,12 +32,17 @@ function EmployerDashboard() {
   return (
     <>
       <Nav currentView="seeker" />
+      <header>
+        <h2>Data refreshes daily at Noon ET</h2>
+      </header>
       <main className={`${classes.jobBoard}`}>
         {(isLoading) && <Loading />}
-        {jobData.map((job) => {
+        {jobData.map((job, index) => {
           return (
             // renter to JobCard with fetched date into props
             <JobCard
+              index={index}
+              id={job.id}
               key={job.id}
               title={job.title}
               companyName={job.company}
@@ -46,6 +51,7 @@ function EmployerDashboard() {
               description={job.summary}
               // description={job.description + '...'}
               url={(job.url) && job.url}
+              likes={job.likes}
             />
           )
         })}

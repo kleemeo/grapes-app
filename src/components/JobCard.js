@@ -21,7 +21,7 @@ function JobCard(props) {
       <h5>{props.companyName} | <span className={classes.cityText}>{props.location}</span></h5>
       <p>{props.description}</p>
       {(props.url) && <a href={props.url} target="_blank" rel="noreferrer">Link to Posting</a>}
-      <button onClick={() => handleLike()}>Likes: {props.likes}</button>
+      {/* <button onClick={() => handleLike()}>Likes: {props.likes}</button> */}
     </article>
   )
 }

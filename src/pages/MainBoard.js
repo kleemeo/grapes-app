@@ -33,7 +33,7 @@ function EmployerDashboard() {
     <>
       <Nav currentView="seeker" />
       <header>
-        <h2>Data refreshes daily at Noon ET</h2>
+        <h2>Currently results for remote jobs:</h2>
       </header>
       <main className={`${classes.jobBoard}`}>
         {(isLoading) && <Loading />}

@@ -33,7 +33,8 @@ function EmployerDashboard() {
     <>
       <Nav currentView="seeker" />
       <header>
-        <h2>Currently results for remote jobs:</h2>
+        <h2>Currently queries for 'front end remote jobs' from ca.indeed.com</h2>
+        <h3>Server will attempt to update daily</h3>
       </header>
       <main className={`${classes.jobBoard}`}>
         {(isLoading) && <Loading />}

@@ -3,7 +3,9 @@ import classes from '../App.module.scss';
 
 // individual cards to show posting
 function JobCard(props) {
-
+  const onJobClick = () => {
+    window.open(props.url, '_blank', 'noopener');
+  }
   // const handleLike = (e) => {
   //   console.log(props.index)
   //   let pressed = localStorage.getItem(`pressed-${props.id}`)
@@ -15,7 +17,7 @@ function JobCard(props) {
   // }
 
   return (
-    <article className={classes.jobCard}>
+    <article className={classes.jobCard} onClick={onJobClick}>
       <h4>{props.title}</h4>
       <h5>{props.companyName} | <span className={classes.cityText}>{props.location}</span></h5>
       <p>{props.description}</p>

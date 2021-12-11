@@ -395,6 +395,10 @@ input:focus {
     font-size: 0.75rem;
   }
 
+  & > * {
+    cursor: default;
+  }
+
   h4,
   h5 {
     margin: 0.5rem 0;

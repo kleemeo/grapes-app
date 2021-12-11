@@ -52,6 +52,7 @@ function EmployerDashboard() {
               description={job.summary}
               // description={job.description + '...'}
               url={(job.url) && job.url}
+              date={(job.postDate) && job.postDate}
               likes={job.likes}
             />
           )

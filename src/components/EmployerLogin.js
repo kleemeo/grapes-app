@@ -41,7 +41,7 @@ function EmployerLogin() {
       <section className={classes.wrapperLogin}>
         <article className={classes['cardMed']}>
           <h1>Hi, Employer</h1>
-          <p>enter your code</p>
+          <p>enter your code (default: 1234)</p>
           <form className={classes.loginForm} onSubmit={handleSubmit}>
             <label htmlFor="employerCode"></label>
             <input autoFocus="autofocus" autoComplete="new-password" className={codeIsInvalid ? classes.invalidCode : undefined} type="password" id="employerCode" maxLength="10" onChange={codeInputHandler} value={enteredCode} />

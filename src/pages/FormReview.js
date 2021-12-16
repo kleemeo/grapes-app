@@ -39,7 +39,7 @@ function FormReview() {
         const newRef = firebase.database().ref(`job-data/${newKey}`);
         newRef.update(data);
       }
-      const postingsRef = firebase.database().ref(`postings/${newKey}`);
+      const postingsRef = firebase.database().ref(`postings-cache/${newKey}`);
       postingsRef.update(data);
 
       // console.log(`${newKey}: ${data}`)
@@ -66,7 +66,7 @@ function FormReview() {
           )}
           {!isLoading && !isSubmitted && (
             <>
-              <article className={classes.jobCard}>
+              <article className={`${classes.jobCard} ${classes.reviewCard}`}>
                 <h4>{data.title}</h4>
                 <h5>{data.company} | <span className={classes.cityText}>{data.place}</span></h5>
                 <p>{data.description}</p>

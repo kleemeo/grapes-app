@@ -11,9 +11,8 @@ function EmployerDashboard() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // fetch data from firebase to populate job board
 
-    // const dbRef = firebase.database().ref('job-data');
+    // fetch data from firebase to populate job board
     const dbRef2 = firebase.database().ref('indeed-scrape2');
     let dbData;
 
@@ -21,9 +20,6 @@ function EmployerDashboard() {
       const data = snapshot.val();
       dbData = data;
       console.log(dbData)
-      // dbData.forEach(job => {
-      //   job.description = job.description.slice(0, 500)
-      // })
       setJobData(dbData)
       setIsLoading(false);
     })
@@ -59,7 +55,6 @@ function EmployerDashboard() {
           )
         })}
       </main>
-      {/* <footer className={classes.footerBoard}><a href="https://junocollege.com/">Created at Juno College</a></footer> */}
     </>
   )
 }

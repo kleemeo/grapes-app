@@ -20,6 +20,7 @@ function EmployerDashboard() {
     dbRef2.on('value', snapshot => {
       const data = snapshot.val();
       dbData = data;
+      console.log(dbData)
       // dbData.forEach(job => {
       //   job.description = job.description.slice(0, 500)
       // })

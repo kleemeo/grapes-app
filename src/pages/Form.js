@@ -109,7 +109,7 @@ function Form() {
         <form onSubmit={handleSubmit} className={classes.addJob}>
           <h3>Post a New Role</h3>
 
-          <input type="text" value={testValue} onChange={testValueHandler} placeholder='test test test'/>
+          <input type="text" value={testValue} onChange={testValueHandler} placeholder='test test test' />
 
           <label htmlFor="title" >job title</label>
           <input
@@ -171,7 +171,6 @@ function Form() {
           <button disabled={!formIsValid} className={classes.btn} onSubmit={handleSubmit}>Preview Posting</button>
         </form>
       </main>
-      <footer><a href="https://junocollege.com/">Created at Juno College</a></footer>
     </>
   )
 }

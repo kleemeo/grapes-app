@@ -21,7 +21,6 @@ function EmployerDashboard() {
           <DashTable className={classes.table} />
         </section>
       </main>
-      <footer><a href="https://junocollege.com/">Created at Juno College</a></footer>
     </>
   )
 }

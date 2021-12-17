@@ -78,7 +78,6 @@ function FormReview() {
           }
         </form>
       </main>
-      <footer><a href="https://junocollege.com/">Created at Juno College</a></footer>
     </>
   )
 }

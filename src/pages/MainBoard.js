@@ -59,7 +59,7 @@ function EmployerDashboard() {
           )
         })}
       </main>
-      <footer className={classes.footerBoard}><a href="https://junocollege.com/">Created at Juno College</a></footer>
+      {/* <footer className={classes.footerBoard}><a href="https://junocollege.com/">Created at Juno College</a></footer> */}
     </>
   )
 }

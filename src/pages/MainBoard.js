@@ -8,12 +8,13 @@ import Loading from "../components/Loading";
 function EmployerDashboard() {
 
   const [jobData, setJobData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const [liData, setLiData] = useState([]);
 
   useEffect(() => {
 
     // fetch data from firebase to populate job board
-    const dbRef2 = firebase.database().ref('indeed-scrape2');
+    const dbRef2 = firebase.database().ref('indeed-scrape');
     let dbData;
 
     dbRef2.on('value', snapshot => {
@@ -23,6 +24,14 @@ function EmployerDashboard() {
       setJobData(dbData)
       setIsLoading(false);
     })
+
+    const dbRef3 = firebase.database().ref('linkedin-scrape');
+    dbRef3.on('value', snapshot => {
+      let jobArr = Object.values(snapshot.val());
+
+      console.log('li: ', jobArr)
+    })
+
 
   }, [isLoading])
 

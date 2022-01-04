@@ -1,6 +1,6 @@
 import Nav from "../components/Nav"
 import classes from '../App.module.scss';
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import uniqueId from '../functions/idGenerator'
 import useInput from "../hooks/use-input";
 import { capitalizeSentence } from "../functions/capitalizeSentence";
@@ -20,11 +20,6 @@ function Form() {
     inputBlurHandler: titleBlurHandler,
     paramSetHandler: titleSetHandler,
     reset: resetTitle } = useInput(value => value.trim() !== '');
-
-  const [testValue, setTestValue] = useState('')
-  const testValueHandler = (e) => {
-    setTestValue(e.target.value)
-  }
 
   const {
     value: enteredCompany,
@@ -108,8 +103,6 @@ function Form() {
       <main className={classes.cardFull}>
         <form onSubmit={handleSubmit} className={classes.addJob}>
           <h3>Post a New Role</h3>
-
-          <input type="text" value={testValue} onChange={testValueHandler} placeholder='test test test' />
 
           <label htmlFor="title" >job title</label>
           <input

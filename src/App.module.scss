@@ -253,6 +253,12 @@ form > * {
   margin-bottom: 10px;
 }
 
+.dashBtn {
+  @include button;
+  text-align: center;
+  margin: 0 10px;
+}
+
 .filterList {
   margin-top: 10px;
   margin-left: 2.5%;
@@ -419,6 +425,7 @@ input:focus {
 
 .reviewCard {
   width: 100%;
+  word-break: break-word;
 }
 
 // submission page
@@ -458,6 +465,10 @@ input:focus {
 @media (max-width: 800px) {
   .cardFull {
     width: 95%;
+  }
+
+  .jobCard {
+    width: 100%;
   }
 }
 

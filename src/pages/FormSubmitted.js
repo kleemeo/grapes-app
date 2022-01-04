@@ -22,7 +22,7 @@ function FormSubmitted() {
             <section className={`${classes.submitted} ${classes.success}`}>
               <i className="fas fa-check-circle"></i>
               <h4>Thank you for your submission</h4>
-              <p>Currently, due to lack of staff, we will be <strong>automatically</strong> approving your submission. You should see it on the main job board shortly.</p>
+              <p>Currently, due to lack of staff, we will <strong>automatically</strong> approve your submission.</p>
               <Link to="/board">Go to the Board</Link>
             </section>
 

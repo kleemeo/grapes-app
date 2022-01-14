@@ -1,5 +1,6 @@
 import classes from '../App.module.scss';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function Home() {
   return (
@@ -16,6 +17,20 @@ function Home() {
 }
 
 function Landing() {
+
+  useEffect(() => {
+    fetch("http://api.frontendeval.com/fake/crypto/usd")
+      .then((res) => {
+        return res.json();
+      })
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   return (
     <>
       <h1>Grapes</h1>

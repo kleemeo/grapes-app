@@ -23,7 +23,6 @@ function EmployerDashboard() {
     dbRef2.on('value', snapshot => {
       const data = snapshot.val();
       dbData = data;
-      console.log(dbData)
       setJobData(dbData)
       // setIsLoading(false);
     })
@@ -31,8 +30,7 @@ function EmployerDashboard() {
     const dbRef3 = firebase.database().ref('linkedin-scrape');
     dbRef3.on('value', snapshot => {
       let jobArr = Object.values(snapshot.val());
-      console.log('li: ', jobArr)
-      setLiData(jobArr);
+      setLiData(jobArr.reverse());
       setIsLoading(false);
     })
 

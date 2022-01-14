@@ -101,7 +101,7 @@ function Form() {
     <>
       <Nav currentView="form" />
       <main className={classes.cardFull}>
-        <form onSubmit={handleSubmit} className={classes.addJob} netlify>
+        <form onSubmit={handleSubmit} className={classes.addJob}>
           <h3>Post a New Role</h3>
 
           <label htmlFor="title" >job title</label>

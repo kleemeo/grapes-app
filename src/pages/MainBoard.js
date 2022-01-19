@@ -56,7 +56,7 @@ function EmployerDashboard() {
           <h2>Remote Roles for Front-End Devs!</h2>
           <button className={classes.mainSelect} onClick={() => { setShowIndeed(true); setShowLinkedin(false); setShowMyData(false) }}>Indeed</button>
           <button className={classes.mainSelect} onClick={() => { setShowIndeed(false); setShowLinkedin(true); setShowMyData(false) }}>LinkedIn</button>
-          <button className={classes.mainSelect} onClick={() => { setShowIndeed(false); setShowLinkedin(false); setShowMyData(true) }}>Our Own Postings</button>
+          <button className={classes.mainSelect} onClick={() => { setShowIndeed(false); setShowLinkedin(false); setShowMyData(true) }}>Custom Postings</button>
         </header>
       }
 

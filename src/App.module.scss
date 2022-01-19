@@ -1,6 +1,16 @@
 // Typography
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 h1,
 .logo {
   font-weight: 600;
@@ -244,6 +254,25 @@ form > * {
     background: none;
     background-color: #383838;
     color: rgb(204, 204, 204);
+  }
+}
+
+.mainSelect {
+  font-family: 'Quicksand';
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #6d3862;
+  margin-right: 10px;
+  &:hover,
+  &:focus {
+    background-color: #221829;
+  }
+  &:active {
+    transform: scale(0.95);
   }
 }
 

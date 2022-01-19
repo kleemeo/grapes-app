@@ -12,7 +12,10 @@ function EmployerDashboard() {
   const [isLoading, setIsLoading] = useState(true);
   const [showIndeed, setShowIndeed] = useState(false);
   const [showLinkedin, setShowLinkedin] = useState(false);
+  const [showMyData, setShowMyData] = useState(false);
   const [liData, setLiData] = useState([]); // linkedin data
+  const [myData, setMyData] = useState([]); // linkedin data
+
 
   useEffect(() => {
 
@@ -30,7 +33,15 @@ function EmployerDashboard() {
     const dbRef3 = firebase.database().ref('linkedin-scrape');
     dbRef3.on('value', snapshot => {
       let jobArr = Object.values(snapshot.val());
-      setLiData(jobArr.reverse());
+      jobArr.sort((b, a) => a.id - b.id)
+      setLiData(jobArr);
+      // setIsLoading(false);
+    })
+
+    const dbRef4 = firebase.database().ref('postings-cache');
+    dbRef4.on('value', snapshot => {
+      let jobArr = Object.values(snapshot.val());
+      setMyData(jobArr);
       setIsLoading(false);
     })
 
@@ -40,14 +51,16 @@ function EmployerDashboard() {
   return (
     <>
       <Nav currentView="seeker" />
-      <header>
-        <h2>front-end remote roles</h2>
-        <button className={classes.dashBtn} onClick={() => { setShowIndeed(true); setShowLinkedin(false) }}>Indeed</button>
-        <button className={classes.dashBtn} onClick={() => { setShowIndeed(false); setShowLinkedin(true) }}>LinkedIn</button>
-      </header>
-      <main>
-        {(isLoading) && <Loading />}
+      {(isLoading) ? <Loading /> :
+        <header>
+          <h2>Remote Roles for Front-End Devs!</h2>
+          <button className={classes.mainSelect} onClick={() => { setShowIndeed(true); setShowLinkedin(false); setShowMyData(false) }}>Indeed</button>
+          <button className={classes.mainSelect} onClick={() => { setShowIndeed(false); setShowLinkedin(true); setShowMyData(false) }}>LinkedIn</button>
+          <button className={classes.mainSelect} onClick={() => { setShowIndeed(false); setShowLinkedin(false); setShowMyData(true) }}>Our Own Postings</button>
+        </header>
+      }
 
+      <main>
 
         {showIndeed && (
 
@@ -77,7 +90,7 @@ function EmployerDashboard() {
         {showLinkedin && (
 
           <section className={`${classes.jobBoard}`}>
-            {liData.map((job, index) => {
+            {liData.reverse().map((job, index) => {
               return (
                 // renter to JobCard with fetched date into props
                 <JobCard
@@ -98,6 +111,30 @@ function EmployerDashboard() {
             })}
           </section>
         )}
+
+        {showMyData && (
+
+          <section className={`${classes.jobBoard}`}>
+            {myData.map((job, index) => {
+              return (
+                // renter to JobCard with fetched date into props
+                <JobCard
+                  index={index}
+                  id={job.id}
+                  key={job.id}
+                  title={job.title}
+                  companyName={job.company}
+                  location={job.place}
+                  description={job.description.slice(0, 100)}
+                  date={(job.date) && moment(job.data).startOf('day').fromNow()}
+                  url={(job.url) ? job.url : '/'}
+                // likes={job.likes}
+                />
+              )
+            })}
+          </section>
+        )}
+
       </main>
     </>
   )
